@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2A1E12AB1D4A5958003BE506 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1E12AA1D4A5958003BE506 /* libc++.tbd */; };
 		2A3F20C31DDDA5EB000B1E27 /* TTAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3F20C21DDDA5EB000B1E27 /* TTAboutViewController.swift */; };
+		2AAAFBCF1E8A19AC0021D657 /* libGDTMobSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAAFBCE1E8A19AC0021D657 /* libGDTMobSDK.a */; };
 		3A01B1B01C2AE1390020870D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A01B1AE1C2AE1390020870D /* Main.storyboard */; };
 		3A01B1B21C2AE1390020870D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A01B1B11C2AE1390020870D /* Assets.xcassets */; };
 		3A01B1B51C2AE1390020870D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A01B1B31C2AE1390020870D /* LaunchScreen.storyboard */; };
@@ -48,8 +49,6 @@
 		3AC282441DC6FA19000E2C9D /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4960521C2E152300759929 /* DateModel.swift */; };
 		3AC282451DC6FA19000E2C9D /* TimeStr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFB4B261CA978DD00527750 /* TimeStr.swift */; };
 		3AC282461DC6FA19000E2C9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B1AA1C2AE1390020870D /* AppDelegate.swift */; };
-		3AC282491DC84E82000E2C9D /* baidumobadsdk.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3AC282471DC84E82000E2C9D /* baidumobadsdk.bundle */; };
-		3AC2824A1DC84E82000E2C9D /* BaiduMobAdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC282481DC84E82000E2C9D /* BaiduMobAdSDK.framework */; };
 		71F8C35FB998EC72566A6EA1 /* Pods_TimeTable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F80FDFE1763B3943FA906EEE /* Pods_TimeTable.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +56,12 @@
 		2A1E12AA1D4A5958003BE506 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		2A1E12AD1D4A6863003BE506 /* SSLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSLaunchViewController.swift; sourceTree = "<group>"; };
 		2A3F20C21DDDA5EB000B1E27 /* TTAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTAboutViewController.swift; sourceTree = "<group>"; };
+		2AAAFBC91E8A19AC0021D657 /* GDTMobBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTMobBannerView.h; sourceTree = "<group>"; };
+		2AAAFBCA1E8A19AC0021D657 /* GDTMobInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTMobInterstitial.h; sourceTree = "<group>"; };
+		2AAAFBCB1E8A19AC0021D657 /* GDTNativeAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeAd.h; sourceTree = "<group>"; };
+		2AAAFBCC1E8A19AC0021D657 /* GDTSplashAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSplashAd.h; sourceTree = "<group>"; };
+		2AAAFBCD1E8A19AC0021D657 /* GDTTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTTrack.h; sourceTree = "<group>"; };
+		2AAAFBCE1E8A19AC0021D657 /* libGDTMobSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGDTMobSDK.a; sourceTree = "<group>"; };
 		2D8E2EAA5E81502A19A8E1BA /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A01B1A71C2AE1390020870D /* TimeTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A01B1AA1C2AE1390020870D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,8 +102,6 @@
 		3A8C45771C7D8C6E00B5A1F7 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		3ABEE5481C50B984004656F1 /* StudentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentsViewController.swift; sourceTree = "<group>"; };
 		3ABEE54A1C50C097004656F1 /* StudentsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentsTableView.swift; sourceTree = "<group>"; };
-		3AC282471DC84E82000E2C9D /* baidumobadsdk.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = baidumobadsdk.bundle; sourceTree = "<group>"; };
-		3AC282481DC84E82000E2C9D /* BaiduMobAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMobAdSDK.framework; sourceTree = "<group>"; };
 		3AF566821C317EB900562E8B /* ChooseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseView.swift; sourceTree = "<group>"; };
 		3AFB4B261CA978DD00527750 /* TimeStr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeStr.swift; sourceTree = "<group>"; };
 		CEB0B2DAB7BC76AAB3512758 /* Pods-TimeTable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeTable.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeTable/Pods-TimeTable.debug.xcconfig"; sourceTree = "<group>"; };
@@ -122,7 +125,6 @@
 				3A8C456E1C7D8C3900B5A1F7 /* MediaPlayer.framework in Frameworks */,
 				3A8C456C1C7D8C3200B5A1F7 /* CoreMotion.framework in Frameworks */,
 				3A8C456A1C7D8C2A00B5A1F7 /* AudioToolbox.framework in Frameworks */,
-				3AC2824A1DC84E82000E2C9D /* BaiduMobAdSDK.framework in Frameworks */,
 				3A8C45681C7D8C2000B5A1F7 /* libz.tbd in Frameworks */,
 				3A8C45661C7D8C1500B5A1F7 /* StoreKit.framework in Frameworks */,
 				3A8C45641C7D8C0E00B5A1F7 /* Security.framework in Frameworks */,
@@ -130,12 +132,26 @@
 				3A8C45601C7D8BD500B5A1F7 /* CoreMedia.framework in Frameworks */,
 				3A8C455E1C7D8BCB00B5A1F7 /* AdSupport.framework in Frameworks */,
 				71F8C35FB998EC72566A6EA1 /* Pods_TimeTable.framework in Frameworks */,
+				2AAAFBCF1E8A19AC0021D657 /* libGDTMobSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2AAAFBC81E8A19AC0021D657 /* GDTlibs */ = {
+			isa = PBXGroup;
+			children = (
+				2AAAFBC91E8A19AC0021D657 /* GDTMobBannerView.h */,
+				2AAAFBCA1E8A19AC0021D657 /* GDTMobInterstitial.h */,
+				2AAAFBCB1E8A19AC0021D657 /* GDTNativeAd.h */,
+				2AAAFBCC1E8A19AC0021D657 /* GDTSplashAd.h */,
+				2AAAFBCD1E8A19AC0021D657 /* GDTTrack.h */,
+				2AAAFBCE1E8A19AC0021D657 /* libGDTMobSDK.a */,
+			);
+			path = GDTlibs;
+			sourceTree = "<group>";
+		};
 		3A01B19E1C2AE1390020870D = {
 			isa = PBXGroup;
 			children = (
@@ -239,18 +255,9 @@
 		3A8C45491C7D891200B5A1F7 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				3A8C45791C7D8D0900B5A1F7 /* BaiduAds */,
+				2AAAFBC81E8A19AC0021D657 /* GDTlibs */,
 			);
 			name = Lib;
-			sourceTree = "<group>";
-		};
-		3A8C45791C7D8D0900B5A1F7 /* BaiduAds */ = {
-			isa = PBXGroup;
-			children = (
-				3AC282471DC84E82000E2C9D /* baidumobadsdk.bundle */,
-				3AC282481DC84E82000E2C9D /* BaiduMobAdSDK.framework */,
-			);
-			path = BaiduAds;
 			sourceTree = "<group>";
 		};
 		71741C5056529CA41F804563 /* Pods */ = {
@@ -353,7 +360,6 @@
 			files = (
 				3A01B1B51C2AE1390020870D /* LaunchScreen.storyboard in Resources */,
 				3A01B1B21C2AE1390020870D /* Assets.xcassets in Resources */,
-				3AC282491DC84E82000E2C9D /* baidumobadsdk.bundle in Resources */,
 				3A01B1B01C2AE1390020870D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,7 +409,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -561,6 +567,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TimeTable/BaiduAds",
+					"$(PROJECT_DIR)/TimeTable/GDTlibs",
 				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = SH.TimeTable;
@@ -586,6 +593,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TimeTable/BaiduAds",
+					"$(PROJECT_DIR)/TimeTable/GDTlibs",
 				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = SH.TimeTable;

@@ -8,22 +8,22 @@
 
 import UIKit
 
-class TTSettingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, BaiduMobAdViewDelegate {
+class TTSettingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var tableView: UITableView!
     var datasource: [String] = ["配置课表", "关于"]
     var classNames: [String] = ["TTConfigClassViewController", "TTAboutViewController"]
-    let bottomHeight: CGFloat = 40
+    let bottomHeight: CGFloat = 55
     //MARK: - life cycle
     override func viewDidLoad() {
-        tableView = UITableView(frame: self.view.bounds, style: .plain)
+        tableView = UITableView(frame: CGRect(x: 0,y: 0,width: kScreenWidth,height: kScreenHeight - bottomHeight), style: .plain)
         tableView.backgroundColor = UIColor.lightGray
         tableView.separatorStyle = .singleLine
         tableView.separatorColor = UIColor.gray
         self.view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
-        addBaiduAds()
+        addGDTAds()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,24 +62,13 @@ class TTSettingViewController: UIViewController, UITableViewDataSource, UITableV
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: classNames[(indexPath as NSIndexPath).row])
         self.navigationController?.pushViewController(vc, animated: true)
     }
-
-    //MARK: Baidu delegate
-    func publisherId() -> String! {
-        return kBaiduAdsId
-    }
-
-    fileprivate func addBaiduAds() {
-        let adsView = UIView.init(frame: CGRect(x: 0, y: kScreenHeight - bottomHeight, width: kScreenWidth, height: bottomHeight))
-        adsView.backgroundColor = UIColor.gray
-        view.addSubview(adsView)
-        
-        let bannerView = BaiduMobAdView()
-        bannerView.adUnitTag = kBannerBaiduId
-        bannerView.adType = BaiduMobAdViewTypeBanner
-        bannerView.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: 40)
-        bannerView.delegate = self
-        adsView.addSubview(bannerView)
-        bannerView.start()
+    
+    fileprivate func addGDTAds() {
+        let bannerView = GDTMobBannerView.init(frame:CGRect(x: 0, y: self.tableView.bottom, width: kScreenWidth, height: bottomHeight) , appkey: kTencentAdsId, placementId: kTencentBannerId)
+        bannerView?.currentViewController = self
+        bannerView?.interval = 6
+        self.view.addSubview(bannerView!)
+        bannerView?.loadAdAndShow()
     }
 
 }

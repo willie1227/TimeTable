@@ -8,10 +8,10 @@
 
 import UIKit
 
-class SSLaunchViewController: UIViewController, BaiduMobAdSplashDelegate {
+class SSLaunchViewController: UIViewController, GDTSplashAdDelegate {
     @IBOutlet weak var adsImageView: UIImageView!
     @IBOutlet weak var jumpButton: UIButton!
-    var splash: BaiduMobAdSplash?
+    var splash: GDTSplashAd?
     
     override func viewDidLoad() {
         adsImageView.contentMode = .scaleAspectFill
@@ -19,7 +19,7 @@ class SSLaunchViewController: UIViewController, BaiduMobAdSplashDelegate {
         jumpButton.layer.cornerRadius = 20
         jumpButton.layer.borderColor = kGreenButtonColor.cgColor
         jumpButton.layer.borderWidth = 0.5
-        addBaiduSplash()
+        addGDTSplash()
     }
     
     @IBAction func skippAdsButtonPressed(_ sender: UIButton) {
@@ -28,33 +28,27 @@ class SSLaunchViewController: UIViewController, BaiduMobAdSplashDelegate {
     }
         
     //MARK - delegate
-    func publisherId() -> String! {
-        return kBaiduAdsId
-    }
-    
-    func splashSuccessPresentScreen(_ splash: BaiduMobAdSplash!) {
+    func splashAdSuccessPresentScreen(_ splashAd: GDTSplashAd!) {
         print("success!!")
     }
     
-    func splashDidClicked(_ splash: BaiduMobAdSplash!) {
+    func splashAdClicked(_ splashAd: GDTSplashAd!) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func splashlFailPresentScreen(_ splash: BaiduMobAdSplash!, withError reason: BaiduMobFailReason) {
-        print("fail reason \(reason)")
+    func splashAdWillClosed(_ splashAd: GDTSplashAd!) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func splashDidDismissScreen(_ splash: BaiduMobAdSplash!) {
+    func splashAdFail(toPresent splashAd: GDTSplashAd!, withError error: Error!) {
         self.dismiss(animated: true, completion: nil)
     }
 
-    fileprivate func addBaiduSplash() {
-        splash = BaiduMobAdSplash()
+    fileprivate func addGDTSplash() {
+        splash = GDTSplashAd.init(appkey: kTencentAdsId, placementId: kTencentSplashId)
         splash!.delegate = self
-        splash!.adUnitTag = kSplashBaiduId
-        splash!.canSplashClick = true
-        splash!.loadAndDisplay(usingContainerView: adsImageView)
+        splash?.fetchDelay = 4
+        splash?.loadAndShow(in: UIApplication.shared.windows.last)
     }
 
 }

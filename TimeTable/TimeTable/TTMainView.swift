@@ -20,7 +20,7 @@ class TTMainView: UIView, TTSingleCollectionViewDelegate {
 
     let topLabelViewHeight: CGFloat = 40
     let topOneLabelWidth: CGFloat = 100
-    let bottomHeight: CGFloat = 40
+    let bottomHeight: CGFloat = 47
     let todayViewHeight: CGFloat = 40
     let margin: CGFloat = 1
     let dayLabelStartTag: Int = 1200

@@ -9,25 +9,24 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, CAAnimationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CAAnimationDelegate, GDTSplashAdDelegate {
 
     var window: UIWindow?
     let launchIconWidth: Int = 60
     let minLauchIconWidth: Int = 50
     let maxLauchIconWidth: Int = 2000
-    var splash: BaiduMobAdSplash?
-    var splashContainerView: UIView?
+    var splash: GDTSplashAd?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+        addGDTSplash()
         configureUmeng()
 //        addAnimation()
         self.window!.makeKeyAndVisible()
         self.window!.backgroundColor = UIColor.white
-        let navigationVC = self.window!.rootViewController
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let launchVC = storyboard.instantiateViewController(withIdentifier: "SSLaunchViewController")
-        navigationVC?.present(launchVC, animated: false, completion: nil)
+//        let navigationVC = self.window!.rootViewController
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let launchVC = storyboard.instantiateViewController(withIdentifier: "SSLaunchViewController")
+//        navigationVC?.present(launchVC, animated: false, completion: nil)
         
         return true
     }
@@ -100,23 +99,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CAAnimationDelegate {
         //maskBackgroundView animation
         UIView.animate(withDuration: 0.1, delay: 1.3, options: UIViewAnimationOptions.curveEaseIn, animations: {
             maskBackgroundView.alpha = 0.0
-            }, completion: {
-                finished in
-                maskBackgroundView.removeFromSuperview()
-                layer.removeFromSuperlayer()
+        }, completion: {
+            finished in
+            maskBackgroundView.removeFromSuperview()
+            layer.removeFromSuperlayer()
         })
         
         // animation of navigation Controller
         UIView.animate(withDuration: 0.3, delay: 1.3, options: UIViewAnimationOptions(), animations: {
             navigationVC!.view.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
-            },
-                                   completion: { finished in
-                                    UIView.animate(withDuration: 0.4, delay: 0.0, options: UIViewAnimationOptions(), animations: {
-                                        navigationVC!.view.transform = CGAffineTransform.identity
-                                        }, completion: nil
-                                    )
+        },completion: {
+            finished in
+            UIView.animate(withDuration: 0.4, delay: 0.0, options: UIViewAnimationOptions(), animations: {
+                navigationVC!.view.transform = CGAffineTransform.identity
+            }, completion: nil)
         })
-
+    }
+    
+    func splashAdSuccessPresentScreen(_ splashAd: GDTSplashAd!) {
+        print("success!!")
+    }
+    
+    func splashAdClicked(_ splashAd: GDTSplashAd!) {
+        self.splash = nil
+    }
+    
+    func splashAdClosed(_ splashAd: GDTSplashAd!) {
+        self.splash = nil
+    }
+    
+    func splashAdFail(toPresent splashAd: GDTSplashAd!, withError error: Error!) {
+        self.splash = nil
+    }
+    
+    fileprivate func addGDTSplash() {
+        splash = GDTSplashAd.init(appkey: kTencentAdsId, placementId: kTencentSplashId)
+        splash!.delegate = self
+        splash?.fetchDelay = 4
+//        let bottomView = UIView.init(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 100))
+//        let iconView = UIView.init(frame: CGRect(x: (kScreenWidth - 60)/2, y: 5, width: 60, height: 60))
+//        iconView.layer.contents = UIImage(named: "Icon")?.cgImage
+//        let label = UILabel.init(frame: CGRect(x: 0, y: 70, width: kScreenWidth, height: 30))
+//        label.textAlignment = .center
+//        label.text = "Copyright © 2015-2016 Shawn.Du All Rights Reserved."
+//        bottomView.addSubview(label)
+//        bottomView.addSubview(iconView)
+//        bottomView.backgroundColor = UIColor.red
+        splash?.loadAndShow(in: self.window)
     }
 
 }

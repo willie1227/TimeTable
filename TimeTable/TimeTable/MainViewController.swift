@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, TTMainViewDelegte, ChooseViewDelegate, BaiduMobAdViewDelegate {
+class MainViewController: UIViewController, TTMainViewDelegte, ChooseViewDelegate {
 
     var chooseStudentView: ChooseView?
     var mainView: TTMainView!
@@ -17,12 +17,19 @@ class MainViewController: UIViewController, TTMainViewDelegte, ChooseViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = kGreenButtonColor
+        self.view.backgroundColor = .white
         print(NSTemporaryDirectory())
-        URLCache.shared.removeAllCachedResponses()
-        self.addTTMainView()
-        self.addGesture()
-        self.addBaiduAds()
+        let deadlineTime = DispatchTime.now() + .seconds(2)
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+            self.addTTMainView()
+            self.addGesture()
+            self.addGDTAds()
+            DispatchQueue.global(qos: .default).async {
+                if (Date().WeekDay() == 5) {
+                    URLCache.shared.removeAllCachedResponses()
+                }
+            }
+        }
 //        CalendarHelper.delay(2, task: {print("after 2m")})
 //        let task = CalendarHelper.delay(5, task: {print("after 5s")})
 //        CalendarHelper.cancel(task)
@@ -30,7 +37,10 @@ class MainViewController: UIViewController, TTMainViewDelegte, ChooseViewDelegat
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        mainView.refreshView()
+        let deadlineTime = DispatchTime.now() + .seconds(2)
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+            self.mainView.refreshView()
+        }
     }
     
     override var prefersStatusBarHidden : Bool {
@@ -111,11 +121,6 @@ class MainViewController: UIViewController, TTMainViewDelegte, ChooseViewDelegat
             })
         }
     }
-    
-    //MARK: Baidu delegate
-    func publisherId() -> String! {
-        return kBaiduAdsId
-    }
 
     //MARK: - private method
     fileprivate func addTTMainView() {
@@ -134,14 +139,12 @@ class MainViewController: UIViewController, TTMainViewDelegte, ChooseViewDelegat
         self.view.addGestureRecognizer(rightSwipe)
     }
     
-    fileprivate func addBaiduAds() {
-        let bannerView = BaiduMobAdView()
-        bannerView.adUnitTag = kBannerBaiduId
-        bannerView.adType = BaiduMobAdViewTypeBanner
-        bannerView.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: 40)
-        bannerView.delegate = self
-        mainView.adsView.addSubview(bannerView)
-        bannerView.start()
+    fileprivate func addGDTAds() {
+        let bannerView = GDTMobBannerView.init(frame:CGRect(x: 0, y: 0, width: kScreenWidth, height: 47) , appkey: kTencentAdsId, placementId: kTencentBannerId)
+        bannerView?.currentViewController = self
+        bannerView?.interval = 6
+        mainView.adsView.addSubview(bannerView!)
+        bannerView?.loadAdAndShow()
     }
 
 
