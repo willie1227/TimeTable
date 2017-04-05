@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, CAAnimationDelegate, GDTSplashAdDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CAAnimationDelegate {
 
     var window: UIWindow?
     let launchIconWidth: Int = 60
@@ -116,25 +116,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CAAnimationDelegate, GDTS
         })
     }
     
-    func splashAdSuccessPresentScreen(_ splashAd: GDTSplashAd!) {
-        print("success!!")
-    }
-    
-    func splashAdClicked(_ splashAd: GDTSplashAd!) {
-        self.splash = nil
-    }
-    
-    func splashAdClosed(_ splashAd: GDTSplashAd!) {
-        self.splash = nil
-    }
-    
-    func splashAdFail(toPresent splashAd: GDTSplashAd!, withError error: Error!) {
-        self.splash = nil
-    }
+//    func splashAdSuccessPresentScreen(_ splashAd: GDTSplashAd!) {
+//        print("success!!")
+//    }
+//    
+//    func splashAdClicked(_ splashAd: GDTSplashAd!) {
+//        self.splash = nil
+//    }
+//    
+//    func splashAdClosed(_ splashAd: GDTSplashAd!) {
+//        self.splash = nil
+//    }
+//    
+//    func splashAdFail(toPresent splashAd: GDTSplashAd!, withError error: Error!) {
+//        self.splash = nil
+//    }
     
     fileprivate func addGDTSplash() {
         splash = GDTSplashAd.init(appkey: kTencentAdsId, placementId: kTencentSplashId)
-        splash!.delegate = self
         splash?.fetchDelay = 4
 //        let bottomView = UIView.init(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 100))
 //        let iconView = UIView.init(frame: CGRect(x: (kScreenWidth - 60)/2, y: 5, width: 60, height: 60))

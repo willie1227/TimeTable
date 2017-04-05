@@ -1,0 +1,20 @@
+PODS:
+  - Realm (2.5.0):
+    - Realm/Headers (= 2.5.0)
+  - Realm/Headers (2.5.0)
+  - RealmSwift (2.5.0):
+    - Realm (= 2.5.0)
+  - UMengAnalytics (4.2.4)
+
+DEPENDENCIES:
+  - RealmSwift
+  - UMengAnalytics
+
+SPEC CHECKSUMS:
+  Realm: 62abce501668580092d2be9b6ba7324a3d5f906a
+  RealmSwift: 9f1a8f624f2f153410115c2cb7d486be9976565d
+  UMengAnalytics: ef8d45f94c0e5771dc364cf6a5731d9d3b101da2
+
+PODFILE CHECKSUM: 89a29754016238118aa65ae5f5d28e3139914fc6
+
+COCOAPODS: 1.2.0
